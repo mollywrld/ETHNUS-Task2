@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>JS Task-4</h1>
+    <h4>Date and Time Display</h4>
+    <button onclick="updateDateTime()">Show date</button>
+
+    <p id="datetime"></p>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleString();
+            document.getElementById("datetime").textContent = dateTimeString;
+        }
+
+        // Update the date and time every second (1000 milliseconds)
+        setInterval(updateDateTime, 1000);
+
+        // Initial update
+        updateDateTime();
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            padding: 20px;
+            max-width: 400px;
+            /* Adjust the width as needed */
+            margin: 0 auto;
+            /* Center the form on the page */
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JS Task-5</h1>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <span id="nameError" class="error"></span><br><br>
+      
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <span id="emailError" class="error"></span><br><br>
+
+        <label for="email">Website:</label>
+        <input type="email" id="web" name="email">
+        <span id="webError" class="error"></span><br><br>
+
+        <label for="email">Message:</label>
+        <textarea id="message" name="message"></textarea>
+        <span id="messError" class="error"></span><br><br>
+      
+        <input type="submit" value="Submit">
+      </form>
+      
+      <script>
+        // Get the form element by its ID
+        const myForm = document.getElementById("myForm");
+      
+        // Add an event listener to the form's submit event
+        myForm.addEventListener("submit", function(event) {
+          // Get the value of the name and email fields
+          const nameField = document.getElementById("name");
+          const emailField = document.getElementById("email");
+          const webField = document.getElementById("web");
+          const messField = document.getElementById("message");
+      
+          // Get the error message spans
+          const nameError = document.getElementById("nameError");
+          const emailError = document.getElementById("emailError");
+          const webError = document.getElementById("webError");
+          const messError = document.getElementById("messError");
+      
+          // Reset the error messages
+          nameError.textContent = "";
+          emailError.textContent = "";
+          webError.textContent="";
+          messError.textContent="";
+      
+          // Check if the name field is empty
+          if (nameField.value.trim() === "") {
+            // Prevent the form from submitting
+            event.preventDefault();
+            // Display an error message next to the name field
+            nameError.textContent = "Name is required!";
+          }
+      
+          // Check if the email field is empty
+          if (emailField.value.trim() === "") {
+            // Prevent the form from submitting
+            event.preventDefault();
+            // Display an error message next to the email field
+            emailError.textContent = "Email is required!";
+          }
+          if (webField.value.trim() === "") {
+            // Prevent the form from submitting
+            event.preventDefault();
+            // Display an error message next to the email field
+            webError.textContent = "website is required!";
+          }
+          if (messField.value.trim() === "") {
+            // Prevent the form from submitting
+            event.preventDefault();
+            // Display an error message next to the email field
+            messError.textContent = "this field is required!";
+          }
+        });
+      </script>
+</body>
+
+</html>

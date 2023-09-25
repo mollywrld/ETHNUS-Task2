@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            width: 800px;
+            height: 700px;
+            border: 2px solid black;
+
+        }
+
+        h1 {
+            margin-left: 70px;
+        }
+
+        form li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        form ul li label {
+            float: left;
+            clear: left;
+            width: 100px;
+            text-align: right;
+            margin-right: 10px;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        form ul li input,
+        select,
+        span {
+            float: left;
+            margin-bottom: 10px;
+        }
+
+        form textarea {
+            float: left;
+            width: 350px;
+            height: 150px;
+        }
+
+        [type="submit"] {
+            clear: left;
+            margin: 20px 0 0 230px;
+            font-size: 18px
+        }
+
+        p {
+            margin-left: 70px;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+    <link rel='stylesheet' href='js-form-validation.css' type='text/css' />
+    <script src="sample-registration-form-validation.js"></script>
+</head>
+
+<body onload="document.registration.userid.focus();">
+    <center>
+        <h1>Registration Form</h1>
+    </center>
+    <form id="myForm" name='registration' onSubmit="return formValidation();">
+        <ul>
+            <li><label for="userid">First Name:</label></li>
+            <li><input type="text" id="name" name="name" size="50" /></li>
+            <span id="nameError" class="error"></span><br><br>
+            <li><label for="passid">Last Name:</label></li>
+            <li><input type="text" id="name" name="name" size="50" /></li>
+            <span id="nameError" class="error"></span><br><br>
+            <li><label for="username">Email:</label></li>
+            <li><input type="text" id="name" name="name" size="50" /></li>
+            <span id="nameError" class="error"></span><br><br>
+            <li><label for="username">Password:</label></li>
+            <li><input type="password" id="name" name="username" size="50" /></li>
+            <span id="nameError" class="error"></span><br><br>
+            <li><label for="address">Re-enter:</label></li>
+            <li><input type="password" id="name" name="address" size="50" /></li>
+            <span id="nameError" class="error"></span><br><br>
+            <li><label id="gender">Gender:</label></li>
+            <li><input type="radio" name="msex" value="Male" /><span>Male</span></li>
+            <li><input type="radio" name="fsex" value="Female" /><span>Female</span></li>
+            <li><label for="username">Age:</label></li>
+            <li><input type="text" id="name" name="name" size="50" /></li>
+            <span id="nameError" class="error"></span><br><br>
+            <li><label for="username">Phone:</label></li>
+            <li><input type="text" id="name" name="name" size="50" /></li>
+            <span id="nameError" class="error"></span><br><br>
+            <li><label for="desc">Address:</label></li>
+            <li><textarea name="desc" id="desc"></textarea></li>
+            <li><label for="country">Country:</label></li>
+            <li><select name="country">
+                    <option selected="" value="Default">(Please select a country)</option>
+                    <option value="AF">Australia</option>
+                    <option value="AL">Canada</option>
+                    <option value="DZ">India</option>
+                    <option value="AS">Russia</option>
+                    <option value="AD">USA</option>
+                </select></li>
+            <li><label>Language:</label></li>
+            <li><input type="checkbox" name="en" value="en" checked /><span>English</span></li>
+            <li><input type="checkbox" name="nonen" value="noen" /><span>Kannada</span></li>
+            <li><input type="checkbox" name="nonen" value="noen" /><span>Hindi</span></li>
+            <li><input type="checkbox" name="nonen" value="noen" /><span>Telugu</span></li>
+
+            <li><input type="submit" name="submit" value="REGISTER" /></li>
+        </ul>
+    </form>
+    <script>
+
+        const myForm = document.getElementById("myForm");
+      
+        // Add an event listener to the form's submit event
+        myForm.addEventListener("submit", function(event) {
+          // Get the value of the name and email fields
+          const nameField = document.getElementById("name");
+        //   const emailField = document.getElementById("email");
+        //   const webField = document.getElementById("web");
+        //   const messField = document.getElementById("message");
+      
+          // Get the error message spans
+          const nameError = document.getElementById("nameError");
+        //   const emailError = document.getElementById("emailError");
+        //   const webError = document.getElementById("webError");
+        //   const messError = document.getElementById("messError");
+      
+          // Reset the error messages
+          nameError.textContent = "";
+        //   emailError.textContent = "";
+        //   webError.textContent="";
+        //   messError.textContent="";
+      
+          // Check if the name field is empty
+          if (nameField.value.trim() === "") {
+            // Prevent the form from submitting
+            event.preventDefault();
+            // Display an error message next to the name field
+            nameError.textContent = "POOR";
+          }
+        });
+    </script>
+</body>
+
+</html>
